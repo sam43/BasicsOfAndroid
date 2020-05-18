@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">BasicsOfAndroid</string>
+    <string name="service_name">My Service</string>
+    <string name="intent_service_name">Intent Service Name</string>
+    <string name="btn_start_service">Start Service</string>
+    <string name="hint_enter_some_messages">Enter some messages</string>
+    <string name="btn_stop_service">Stop Service</string>
+</resources>
