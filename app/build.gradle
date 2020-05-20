@@ -15,8 +15,13 @@ android {
     }
 
     buildTypes {
+        debug {
+            minifyEnabled true
+            signingConfig signingConfigs.debug
+        }
         release {
             minifyEnabled false
+            signingConfig signingConfigs.debug // debuging purpose new signing config required when release store file available
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -32,7 +37,7 @@ dependencies {
     // Leak canary
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.3'
 
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
