@@ -27,19 +27,20 @@ public class NotificationServiceActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void startService(View v) {
         String input = Objects.requireNonNull(etInput.getText()).toString();
-        Intent serviceIntent = new Intent(this, NotificationService.class);
-        serviceIntent.putExtra("notify_msg", input);
+        Intent serviceIntent = new Intent(this, NotificationIntentService.class);
+        //serviceIntent.putExtra("notify_msg", etInput.getText().toString());
+        serviceIntent.putExtra("inputExtra", etInput.getText().toString());
         //startService(serviceIntent);
         ContextCompat.startForegroundService(this, serviceIntent);
     }
 
     public void stopService(View v) {
-        stopService(new Intent(this, NotificationService.class));
+        stopService(new Intent(this, NotificationIntentService.class));
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        //stopService(new Intent(this, NotificationService.class));
+        stopService(new Intent(this, NotificationIntentService.class));
     }
 }

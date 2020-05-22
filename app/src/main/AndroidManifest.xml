@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sam43.basicsofandroid">
 
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -40,6 +43,8 @@
             android:icon="@drawable/ic_launcher_foreground"
             android:label="@string/service_name" />
         <service
+            android:name=".notificationservices.NotificationIntentService" />
+        <service
             android:name=".SomeIntentService"
             android:label="@string/intent_service_name" />
         <service android:name=".DownloadService" />
@@ -47,6 +52,7 @@
             android:name=".cashback.CashBackIntentService"
             android:process=":remote" />
         <service android:name=".notificationservices.NotificationService" />
+        <service android:name=".notificationservices.NotificationIntentService" />
 
         <receiver
             android:name=".SomeBroadcastReceiver"
